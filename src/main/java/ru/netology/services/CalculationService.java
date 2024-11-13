@@ -8,12 +8,16 @@ public class CalculationService {
 
         for (int month = 0; month < 12; month++) {
             if (money >= threshold) {
+                money -= expenses;
+                money /= 3;
                 months++;
-                money = (money - expenses) / 3;
+
             } else {
-                money = money + income - expenses;
+                money += income;
+                money -= expenses;
             }
         }
+
         return months;
     }
 }
